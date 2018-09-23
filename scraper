@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+import twint
+
+c = twint.Config()
+open('twitter.txt', 'w').close()
+
+# print("Enter a date to start from ((Example: 2017-12-27)): ")
+# c.Since = input()
+# print("Enter a date to end ((Example: 2017-12-27)): ")
+# c.Until = input()
+c.Since = "2018-09-04"
+c.Until = "2018-09-11"
+
+c.Store_csv = True
+c.Search = "Nike"
+c.verified = True
+# Custom output format
+c.Custom = ["username", "tweet"]
+c.Limit = 2500
+
+c.Output = "twitter.txt"
+twint.run.Search(c)
+
+file = open("twitter.txt", "r")
+
